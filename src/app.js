@@ -2,9 +2,8 @@
 import "bootstrap";
 import "./style.css";
 
+// Adding functionality so that the excuseGenerator loads on each click on the button
 window.onload = () => {
-  //write your code here
-
   // To update the excuse on page load
   // document.querySelector(".my_excuse").innerHTML = excuseGenerator();
 
@@ -15,8 +14,9 @@ window.onload = () => {
   });
 };
 
+// Creating a function to generate excuses
 const excuseGenerator = () => {
-  const excuse_object = {
+  const excuseObject = {
     who: ["The dog", "My grandma", "His turtle", "My bird"],
     action: ["ate", "peed", "crushed", "broke"],
     what: ["my homework", "the keys", "the car"],
@@ -28,18 +28,20 @@ const excuseGenerator = () => {
       "while I was praying"
     ]
   };
-  let property = Object.keys(excuse_object);
-  let out_string = "";
-  property.forEach(function(property) {
-    // excuse_object[property] // -> prints the array one at a time
+  const property = Object.keys(excuseObject);
+  let outputString = "";
+  property.forEach(property => {
+    // excuseObject[property] // -> prints the array one at a time
 
     // now what we need to do it to randomize the selection inside of each array
-    let random_int = Math.floor(Math.random() * excuse_object[property].length);
+    const randomInteger = Math.floor(
+      Math.random() * excuseObject[property].length
+    );
 
-    // excuse_object[property][random_int] // -> prints a random value of an array
+    // excuseObject[property][randomInteger] // -> prints a random value of an array
 
-    // what we need is the above and adding it to the output string
-    out_string += excuse_object[property][random_int] + " ";
+    // what we need is the above and adding it to the outputString
+    outputString += excuseObject[property][randomInteger] + " ";
   });
-  return out_string;
+  return outputString;
 };
